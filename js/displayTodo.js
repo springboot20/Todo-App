@@ -29,7 +29,10 @@ const displayTodo = () => {
     deleteBtn.className = 'btn btn-danger deleteBtn mx-3';
 
 
+    index.className = 'fw-bold fs-5'
     index.innerHTML = `${ind}`;
+
+    todoTxt.className = 'fw-bold fs-6'
     todoTxt.innerHTML = `${todo}`;
 
     actions.appendChild(editBtn);
