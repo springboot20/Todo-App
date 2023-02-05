@@ -1,16 +1,27 @@
 import localstorage from "./localStore.js";
 import displayTodo from "./displayTodo.js";
 
+let todos;
+let todoItems = [];
 (function () {
   const todoInput = document.querySelector(".todoInput"),
+    display = document.getElementById("display"),
     addBtn = document.querySelector(".addBtn");
 
-  let todos;
-  let todoItems = [];
 
   addBtn.addEventListener("click", () => {
-    localstorage(todos, todoItems, todoInput);
-    displayTodo(todos, todoItems);
+    if (todoInput.value !== '') {
+      display.innerHTML = '';
+      localstorage(todos, todoItems, todoInput);
+      displayTodo();
+    } else {
+      alert('Please enter a task to to add ❓❓❓')
+    }
   });
 
 })();
+
+
+window.addEventListener('load', () => {
+  displayTodo();
+})
